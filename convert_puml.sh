@@ -11,10 +11,15 @@
         source .env
     fi
 
-    while read line; do
-        new_file=${line/.puml/.png}
-        curl -o out/$new_file --data-binary @puml/$line \
-            -H "Content-Type: text/plain; charset=utf-8" \
-            http://localhost:${PORT_PLANTUML:-8080}/png
-    done < <(find puml -name "*.puml" -printf "%f\n")
+    while read filename; do
+        new_filename=${filename/.puml/.png}
+        if [[ ! out/${new_filename} -nt puml/${filename} ]]; then
+            curl -o out/$new_filename --data-binary @puml/$filename \
+                -H "Content-Type: text/plain; charset=utf-8" \
+                http://localhost:${PORT_PLANTUML:-8080}/png
+
+        else
+            echo "skipped: ${filename}.puml is not updated"
+        fi
+    done < <(find puml -name "*.puml" -printf "%f\n" | sort)
 )
