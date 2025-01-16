@@ -1,0 +1,6 @@
+/out/*
+!/out/sample.png
+/puml/*
+!/puml/sample.puml
+/tmp
+ignored*
