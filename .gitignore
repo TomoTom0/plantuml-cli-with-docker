@@ -1,4 +1,6 @@
 /out/*
+!/out/png
+/out/png/*
 !/out/png/sample.png
 /puml/*
 !/puml/sample.puml
