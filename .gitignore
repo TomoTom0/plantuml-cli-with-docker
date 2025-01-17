@@ -1,5 +1,5 @@
 /out/*
-!/out/sample.png
+!/out/png/sample.png
 /puml/*
 !/puml/sample.puml
 /tmp

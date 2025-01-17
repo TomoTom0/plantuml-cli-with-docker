@@ -26,7 +26,15 @@ Write your PlantUML code in `puml` directory and run the following command:
 bash convert_puml.sh
 ```
 
-The generated images will be saved in `out` directory.
+The generated images will be saved in `out/png` directory.
+While there is already converted images with the same name and the source plantuml files are not updated, the conversion will be skipped.
+
+If you want to change the output extension, you can add arguments to the `convert_puml.sh` script.
+The extension can be `png`, `svg`, `pdf`.
+
+```bash
+convert_puml.sh svg
+```
 
 ### Stop PlantUML Server
 
